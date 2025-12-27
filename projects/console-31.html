@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 31: De Weblog | C# Masterclass</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/premium.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <meta property="og:description"
+        content="Leer C# bouwen met premium tutorials en 30+ projecten. Van Console tot API's.">
+    <meta property="og:url" content="https://marouf260.github.io/csahrpLerenLeren.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="C# Masterclass">
+    <meta name="twitter:description" content="Word een C# pro met interactieve lessen.">
+    <meta name="twitter:image"
+        content="https://marouf260.github.io/csahrpLerenLeren.github.io/img/preview_social.jpg?v=3">
+
+
+    <!-- SOCIAL MEDIA META TAGS -->
+    <meta property="og:title" content="C# Masterclass | Zero to Hero">
+    <meta property="og:description"
+        content="Leer C# bouwen met premium tutorials en 30+ projecten. Van Console tot API's.">
+    <meta property="og:image" content="https://marouf260.github.io/csahrpLerenLeren.github.io/social.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://marouf260.github.io/csahrpLerenLeren.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C# Masterclass">
+    <meta name="twitter:description" content="Word een C# pro met interactieve lessen.">
+    <meta name="twitter:image" content="https://marouf260.github.io/csahrpLerenLeren.github.io/social.jpg">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="C# Masterclass">
+    <meta itemprop="description" content="Leer C# bouwen met premium tutorials.">
+    <meta itemprop="image" content="https://marouf260.github.io/csahrpLerenLeren.github.io/social.jpg">
+
+</head>
+
+<body>
+    <button class='menu-toggle' onclick='toggleMobileMenu()' aria-label='Toggle Menu'>
+        <span></span>
+    </button>
+    <div class='sidebar-overlay'></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <nav class="sidebar">
+        <a href="../index.html" class="brand"><span>⚡ C# MASTER</span></a>
+        <div class="nav-section">
+            <div class="nav-title">Projecten</div>
+            <a href="../project.html" class="nav-link">&larr; Terug</a>
+            <a href="#" class="nav-link active">31. De Weblog</a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="hero-container">
+            <h1 class="glitch" data-text="Project 31: De Weblog">Project 31: De Weblog</h1>
+            <p class="lead">Introductie tot ASP.NET Core MVC en Web Apps.</p>
+        </div>
+        <div class="content-container">
+            <div class="exercise-box">
+                <h2>🎯 De Opdracht (15)</h2>
+
+                <h3>Situatie</h3>
+                <p>"Weblog" is een log bijhouden op het web, maar iemand gooide er vroeger per ongeluk een spatie in en
+                    toen stond er "we blog". Op zijn Engels betekent dat "wij bloggen" en sindsdien is bloggen een
+                    werkwoord geworden. En zo zijn ook de woorden blog en blogger ontstaan zoals we dat vandaag de dag
+                    kennen.</p>
+
+                <h3>Doelstelling</h3>
+                <ul>
+                    <li>Ontwikkel een blog bestaande uit 1 pagina.</li>
+                    <li>Op deze pagina kan je 3 verhalen lezen.</li>
+                    <li><strong>(1 punt)</strong></li>
+                </ul>
+
+                <h3>Optioneel</h3>
+                <ul>
+                    <li>Op deze pagina kan je verhalen posten. <strong>(+3 punten)</strong></li>
+                    <li>Maak gebruik van het MVC pattern. <strong>(+2 punten)</strong></li>
+                    <li>Maak gebruik van C#. <strong>(+3 punten)</strong></li>
+                </ul>
+            </div>
+
+            <div class="theory-box"
+                style="margin-top: 30px; background: rgba(59, 130, 246, 0.1); border-left: 4px solid #3b82f6; padding: 20px; border-radius: 8px;">
+                <h3>📘 Extra Uitleg: Wat is MVC?</h3>
+                <p>MVC staat voor <strong>Model View Controller</strong>. Het is het populairste design pattern voor
+                    webapplicaties in C# (ASP.NET Core).</p>
+
+                <ul style="margin-top: 10px;">
+                    <li><strong>Model (De Data):</strong> Dit zijn je classes. Bijvoorbeeld <code>BlogPost.cs</code> met
+                        een titel en inhoud. Hier zit geen logica of HTML in, alleen data.</li>
+                    <li><strong>View (Het Uiterlijk):</strong> Dit is de HTML pagina (vaak <code>.cshtml</code> in C#).
+                        De View 'krijgt' het Model en toont de data aan de gebruiker.</li>
+                    <li><strong>Controller (De Baas):</strong> De Controller ontvangt het verzoek van de browser (bv.
+                        "gebruiker klikt op /blog"), haalt de data op uit een database (of lijst), stopt het in een
+                        Model en stuurt het naar de View.</li>
+                </ul>
+
+                <p style="margin-top: 15px;"><strong>Stappenplan voor C# (ASP.NET Core):</strong></p>
+                <ol>
+                    <li>Maak een nieuw MVC project: <code>dotnet new mvc -o MijnBlog</code></li>
+                    <li>Maak een class <code>BlogPost</code> (Title, Content, Author).</li>
+                    <li>In de <code>HomeController</code>, maak een lijst met 3 dummy Posts.</li>
+                    <li>Stuur die lijst naar de View: <code>return View(posts);</code></li>
+                    <li>In <code>Index.cshtml</code>, gerbuik een <code>foreach</code> loop om ze in HTML te tonen.</li>
+                </ol>
+            </div>
+
+            <h2 style="margin-top: 40px;">🎯 Code Voorbeeld (Controller & Model)</h2>
+            <div class="code-block">
+                <pre><code class="language-csharp">// 1. Het Model (BlogPost.cs)
+public class BlogPost 
+{
+    public string Title { get; set; }
+    public string Content { get; set; }
+}
+
+// 2. De Controller (HomeController.cs)
+public class HomeController : Controller 
+{
+    public IActionResult Index() 
+    {
+        // Maak dummy data (de "3 verhalen")
+        var posts = new List<BlogPost> {
+            new BlogPost { Title = "Mijn Eerste Post", Content = "Hallo Wereld!" },
+            new BlogPost { Title = "C# is cool", Content = "MVC maakt alles makkelijker." },
+            new BlogPost { Title = "Vakantie", Content = "Ik ben naar Spanje geweest." }
+        };
+
+        // Stuur de lijst naar de View
+        return View(posts);
+    }
+}</code></pre>
+            </div>
+
+            <h2 style="margin-top: 20px;">🎯 Code Voorbeeld (De View - HTML)</h2>
+            <div class="code-block">
+                <pre><code class="language-html">@model List&lt;BlogPost&gt;
+
+&lt;h1&gt;Mijn Blog&lt;/h1&gt;
+
+@foreach(var post in Model) 
+{
+    &lt;div class="blog-card"&gt;
+        &lt;h2&gt;@post.Title&lt;/h2&gt;
+        &lt;p&gt;@post.Content&lt;/p&gt;
+    &lt;/div&gt;
+}</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src='../js/main.js'></script>
+    <script src='../js/translate.js?v=210'></script>
+    <script src="../js/animations.js"></script>
+</body>
+
+</html>
