@@ -200,3 +200,35 @@ document.querySelectorAll('pre').forEach(pre => {
         pre.appendChild(btn);
     }
 });
+
+// ------------------------------------------------------------------
+// ------------------------------------------------------------------
+// 4. LOAD GLOBAL CHAT WIDGET
+// ------------------------------------------------------------------
+// Auto-Inject FontAwesome if missing (for icons)
+if (!document.querySelector('link[href*="font-awesome"]')) {
+    const faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(faLink);
+}
+
+const scriptChat = document.createElement('script');
+// Improved Path Logic for Local Files & GitHub Pages
+const isRoot = window.location.pathname.endsWith('index.html') ||
+    window.location.pathname.endsWith('/') ||
+    window.location.pathname.endsWith('project.html') ||
+    window.location.pathname.endsWith('roadmap.html');
+
+scriptChat.src = isRoot ? 'js/chat.js' : '../js/chat.js';
+
+// Extra safety for deeply nested files (3 levels deep, though unlikely in this structure)
+if (window.location.pathname.split('/').length > 5 && !isRoot) {
+    // Adjust if needed, but '../' is usually enough for 1 level deep (projects/xyz.html)
+}
+
+scriptChat.onload = () => console.log("Chat Widget Loaded Successfully");
+scriptChat.onerror = () => console.error("Failed to load Chat Widget from: " + scriptChat.src);
+
+document.body.appendChild(scriptChat);
+
